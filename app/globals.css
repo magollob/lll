@@ -1,0 +1,60 @@
+/* Tailwind + shadcn base */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Non-critical extras (critical styles are also inlined in <head> to avoid FOUC) */
+html {
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Keep same class names/behavior as original */
+.confectionery-bg {
+  background: radial-gradient(1200px 600px at 10% -10%, rgba(253, 122, 177, 0.1), transparent 60%),
+    radial-gradient(900px 500px at 100% 10%, rgba(244, 114, 182, 0.1), transparent 60%), #fff;
+}
+.confectionery-pattern {
+  position: relative;
+}
+.confectionery-pattern::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background-image: radial-gradient(rgba(253, 122, 177, 0.08) 1px, transparent 1px),
+    radial-gradient(rgba(253, 122, 177, 0.06) 1px, transparent 1px);
+  background-size: 24px 24px, 48px 48px;
+  background-position: 0 0, 12px 12px;
+  z-index: 0;
+}
+.glass-card {
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+.glass-card-strong {
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+}
+@keyframes pulseGlow {
+  0%,
+  100% {
+    box-shadow: 0 0 0 0 rgba(253, 122, 177, 0.5);
+  }
+  50% {
+    box-shadow: 0 0 0 6px rgba(253, 122, 177, 0.15);
+  }
+}
+.pulse-glow {
+  animation: pulseGlow 3s ease-in-out infinite;
+}
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
